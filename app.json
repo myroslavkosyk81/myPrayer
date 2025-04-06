@@ -19,10 +19,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.myroslav.kosyk.myPrayer"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e73281fd-020d-4065-a6dd-34734a1cb5af"
+      }
+    },
+    "owner": "myroslav.kosyk"
   }
 }
