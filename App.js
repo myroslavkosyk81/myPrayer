@@ -1,139 +1,14 @@
 // App.js
 
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  Button,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { blocks } from "./blockTexts";
+import HomeScreen from "./screens/HomeScreen";
+import ScreenOne from "./screens/ScreenOne";
+import ScreenTwo from "./screens/ScreenTwo";
+import ScreenThree from "./screens/ScreenThree";
 
 const Stack = createNativeStackNavigator();
-
-const HomeScreen = ({ navigation }) => {
-  const [inputDate, setInputDate] = useState("");
-  const [storedDate, setStoredDate] = useState(null);
-  const [error, setError] = useState("");
-
-  const validateDate = (dateStr) => {
-    const regex = /^(\d{2})\.(\d{2})\.(\d{4})$/;
-    return regex.test(dateStr);
-  };
-
-  const saveDateToStorage = async () => {
-    try {
-      if (validateDate(inputDate)) {
-        await AsyncStorage.setItem("selectedDate", inputDate);
-        setStoredDate(inputDate);
-        setError("");
-        alert("Дата збережена!");
-      } else {
-        setError("Невірний формат дати! Введіть у форматі dd.mm.yyyy");
-      }
-    } catch (error) {
-      console.log("Error saving date: ", error);
-    }
-  };
-
-  const loadDateFromStorage = async () => {
-    try {
-      const savedDate = await AsyncStorage.getItem("selectedDate");
-      if (savedDate) {
-        setStoredDate(savedDate);
-        setInputDate(savedDate);
-      }
-    } catch (error) {
-      console.log("Error loading date: ", error);
-    }
-  };
-
-  useEffect(() => {
-    loadDateFromStorage();
-  }, []);
-
-  const addOneDay = (dateStr) => {
-    const parts = dateStr.split(".");
-    const date = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
-    date.setDate(date.getDate() + 1);
-    return date.toLocaleDateString("uk-UA");
-  };
-
-  return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={inputDate}
-        placeholder="Введіть дату (dd.mm.yyyy)"
-        onChangeText={(text) => {
-          setInputDate(text);
-          setError("");
-        }}
-        keyboardType="numeric"
-      />
-      <Button title="Зберегти дату" onPress={saveDateToStorage} />
-
-      {error ? <Text style={styles.error}>{error}</Text> : null}
-
-      {storedDate && (
-        <>
-          <TouchableOpacity
-            style={styles.block}
-            onPress={() =>
-              navigation.navigate("ScreenOne", {
-                date: storedDate,
-              })
-            }
-          >
-            <Text style={styles.blockText}>
-              {blocks.one.title} — {storedDate}
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.block}
-            onPress={() =>
-              navigation.navigate("ScreenTwo", {
-                date: addOneDay(storedDate+3),
-              })
-            }
-          >
-            <Text style={styles.blockText}>
-              {blocks.two.title} — {addOneDay(storedDate)}
-            </Text>
-          </TouchableOpacity>
-        </>
-      )}
-    </View>
-  );
-};
-
-const ScreenOne = ({ route }) => {
-  const { date } = route.params;
-  return (
-    <View style={styles.page}>
-      <Text style={styles.pageTitle}>{blocks.one.title}</Text>
-      <Text style={styles.pageDate}>{date}</Text>
-      <Text style={styles.pageText}>{blocks.one.description}</Text>
-    </View>
-  );
-};
-
-const ScreenTwo = ({ route }) => {
-  const { date } = route.params;
-  return (
-    <View style={styles.page}>
-      <Text style={styles.pageTitle}>{blocks.two.title}</Text>
-      <Text style={styles.pageDate}>{date}</Text>
-      <Text style={styles.pageText}>{blocks.two.description}</Text>
-    </View>
-  );
-};
 
 export default function App() {
   return (
@@ -142,61 +17,8 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Головна" }} />
         <Stack.Screen name="ScreenOne" component={ScreenOne} options={{ title: "Сторінка Один" }} />
         <Stack.Screen name="ScreenTwo" component={ScreenTwo} options={{ title: "Сторінка Два" }} />
+        <Stack.Screen name="ScreenThree" component={ScreenThree} options={{ title: "Сторінка Три" }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 50,
-    alignItems: "center",
-    backgroundColor: "#fff",
-  },
-  input: {
-    height: 40,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    width: "80%",
-    textAlign: "center",
-  },
-  block: {
-    marginTop: 20,
-    backgroundColor: "#e0e0e0",
-    padding: 15,
-    borderRadius: 8,
-    width: "80%",
-    alignItems: "center",
-  },
-  blockText: {
-    fontSize: 18,
-  },
-  error: {
-    color: "red",
-    marginTop: 10,
-  },
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "#fff",
-  },
-  pageTitle: {
-    fontSize: 28,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  pageDate: {
-    fontSize: 20,
-    marginBottom: 20,
-  },
-  pageText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#333",
-  },
-});
