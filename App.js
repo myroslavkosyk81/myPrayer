@@ -12,6 +12,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { blocks } from "./blockTexts";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
         setError("");
         alert("Дата збережена!");
       } else {
-        setError("Невірний формат дати! Введіть у форматі дд.мм.рррр");
+        setError("Невірний формат дати! Введіть у форматі dd.mm.yyyy");
       }
     } catch (error) {
       console.log("Error saving date: ", error);
@@ -68,7 +69,7 @@ const HomeScreen = ({ navigation }) => {
       <TextInput
         style={styles.input}
         value={inputDate}
-        placeholder="Введіть дату (дд.мм.рррр)"
+        placeholder="Введіть дату (dd.mm.yyyy)"
         onChangeText={(text) => {
           setInputDate(text);
           setError("");
@@ -89,19 +90,21 @@ const HomeScreen = ({ navigation }) => {
               })
             }
           >
-            <Text style={styles.blockText}>Один — {storedDate}</Text>
+            <Text style={styles.blockText}>
+              {blocks.one.title} — {storedDate}
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.block}
             onPress={() =>
               navigation.navigate("ScreenTwo", {
-                date: addOneDay(storedDate),
+                date: addOneDay(storedDate+3),
               })
             }
           >
             <Text style={styles.blockText}>
-              Два — {addOneDay(storedDate)}
+              {blocks.two.title} — {addOneDay(storedDate)}
             </Text>
           </TouchableOpacity>
         </>
@@ -114,11 +117,9 @@ const ScreenOne = ({ route }) => {
   const { date } = route.params;
   return (
     <View style={styles.page}>
-      <Text style={styles.pageTitle}>Один</Text>
+      <Text style={styles.pageTitle}>{blocks.one.title}</Text>
       <Text style={styles.pageDate}>{date}</Text>
-      <Text style={styles.pageText}>
-        Це сторінка з назвою "Один". Тут ви бачите збережену дату.
-      </Text>
+      <Text style={styles.pageText}>{blocks.one.description}</Text>
     </View>
   );
 };
@@ -127,12 +128,9 @@ const ScreenTwo = ({ route }) => {
   const { date } = route.params;
   return (
     <View style={styles.page}>
-      <Text style={styles.pageTitle}>Два</Text>
+      <Text style={styles.pageTitle}>{blocks.two.title}</Text>
       <Text style={styles.pageDate}>{date}</Text>
-      <Text style={styles.pageText}>
-        Це сторінка "Два". Вона містить дату, збільшену на один день. Ви можете
-        використовувати це для створення нагадувань або розкладу.
-      </Text>
+      <Text style={styles.pageText}>{blocks.two.description}</Text>
     </View>
   );
 };
@@ -141,9 +139,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Головна' }} />
-        <Stack.Screen name="ScreenOne" component={ScreenOne} options={{ title: 'Сторінка Один' }} />
-        <Stack.Screen name="ScreenTwo" component={ScreenTwo} options={{ title: 'Сторінка Два' }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Головна" }} />
+        <Stack.Screen name="ScreenOne" component={ScreenOne} options={{ title: "Сторінка Один" }} />
+        <Stack.Screen name="ScreenTwo" component={ScreenTwo} options={{ title: "Сторінка Два" }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
