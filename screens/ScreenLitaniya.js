@@ -5,20 +5,22 @@ import { View, Text, ScrollView } from "react-native";
 import { styles } from "../styles/globalStyles";
 import { blocks } from "../data/blockTexts";
 
-const ScreenOne = ({ route }) => {
+const ScreenLitaniya = ({ route }) => {
   const { date } = route.params;
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
       <View style={styles.page}>
-      <Text style={styles.pageTitle}>{blocks.one.title}</Text>
+      <Text style={styles.pageTitle}>{blocks.litaniya.title}</Text>
       <Text style={styles.pageDate}>{date}</Text>
-      {blocks.one.description.map((item, index) => (
+      {blocks.litaniya.description.map((item, index) => (
           <Text
             key={index}
             style={[index === 0 ? styles.paragraph2 : styles.paragraph,
-              (index === 3 || index === 1) ? styles.paragraph2 : styles.paragraph,
-              (index === 5 || index === 7) ? styles.paragraph2 : styles.paragraph,
+              (index === 1 || index === 2) ? styles.paragraph2 : styles.paragraph,
+              (index === 43 || index === 44) ? styles.paragraph2 : styles.paragraph,
+              (index === 46 || index === 51) ? styles.paragraph2 : styles.paragraph,
+              index === 54 ? styles.paragraph2 : styles.paragraph,
               
             ]} // застосовуємо стилі в залежності від індексу
           >
@@ -38,5 +40,5 @@ const ScreenOne = ({ route }) => {
   );
 };
 
-export default ScreenOne;
+export default ScreenLitaniya;
 

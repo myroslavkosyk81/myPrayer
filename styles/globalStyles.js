@@ -11,7 +11,12 @@ export const styles = StyleSheet.create({
   },
   dateAndButton: {
     flexDirection: "row",
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+    top: 20,
     gap: 30,
+    height: 40,
   },
   input: {
     height: 40,
@@ -25,11 +30,12 @@ export const styles = StyleSheet.create({
   },
  
   block: {
+    top: 20,
     marginTop: 10,
     backgroundColor: "#e0e0e0",
     padding: 10,
     borderRadius: 8,
-    width: "80%",
+    width: "100%",
     alignItems: "center",
   },
   blockText: {
@@ -38,6 +44,20 @@ export const styles = StyleSheet.create({
   error: {
     color: "red",
     marginTop: 10,
+  },
+  paragraph: {
+    fontSize: 16,
+    lineHeight: 24,
+    marginBottom: 10,
+    textAlign: "justify",
+  },
+  paragraph2: {
+    fontSize: 16,
+    lineHeight: 28,
+    fontWeight: "800",
+    color: "#333",
+    marginBottom: 10,
+    textAlign: "justify",
   },
   page: {
     flex: 1,
