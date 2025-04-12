@@ -38,6 +38,20 @@ export const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
+  image: {
+    width: 132,
+    height: 200, // 🔼 більша висота
+    borderRadius: 8,
+    alignSelf: 'center',
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  
+  
   blockText: {
     fontSize: 18,
   },

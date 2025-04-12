@@ -7,6 +7,7 @@ import {
   Button,
   TouchableOpacity,
   FlatList,
+  Image,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { styles } from "../styles/globalStyles";
