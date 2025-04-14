@@ -10,7 +10,8 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { styles } from "../styles/globalStyles";
 
-const NewDateBlocksScreen = () => {
+const MenuScreen1 = () => {
+// const NewDateBlocksScreen = () => {
   const [inputDate, setInputDate] = useState("");
   const [storedDate, setStoredDate] = useState(null);
   const [error, setError] = useState("");
@@ -99,4 +100,5 @@ const NewDateBlocksScreen = () => {
   );
 };
 
-export default NewDateBlocksScreen;
+export default MenuScreen1;
+// export default NewDateBlocksScreen;
