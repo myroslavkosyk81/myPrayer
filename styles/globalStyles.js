@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 70,
     alignItems: "center",
     backgroundColor: "#e0ffba",
   },
@@ -25,6 +25,16 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     paddingLeft: 10,
     width: "30%",
+    height: "100%",
+    textAlign: "center",
+  },
+  inputPsalm: {
+    height: 40,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    marginBottom: 5,
+    paddingLeft: 10,
+    width: "40%",
     height: "100%",
     textAlign: "center",
   },

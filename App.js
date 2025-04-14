@@ -50,8 +50,9 @@ export default function App() {
           <Stack.Screen name="ScreenEight" component={ScreenEight} options={{ title: "ВОСЬМИЙ ДЕНЬ" }} />
           <Stack.Screen name="ScreenNine" component={ScreenNine} options={{ title: "ДЕВ’ЯТИЙ ДЕНЬ" }} />
           <Stack.Screen name="ScreenLitaniya" component={ScreenLitaniya} options={{ title: "Літанія" }} />
-          <Stack.Screen name="Menu1" component={MenuScreen1} options={{ title: "Меню 1" }} />
-          <Stack.Screen name="Menu2" component={MenuScreen2} options={{ title: "Меню 2" }} />
+          <Stack.Screen name="Menu1" component={MenuScreen1} options={{ title: "Псалми" }} />
+          <Stack.Screen name="Menu2" component={MenuScreen2} options={{ title: "Мої молитви" }} />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

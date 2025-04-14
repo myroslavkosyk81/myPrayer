@@ -126,14 +126,14 @@ const HomeScreen = ({ navigation }) => {
               setMenuVisible(false);
               navigation.navigate("Menu1");
             }}
-            title="Меню 1"
+            title="Псалми"
           />
           <Menu.Item
             onPress={() => {
               setMenuVisible(false);
               navigation.navigate("Menu2");
             }}
-            title="Меню 2"
+            title="Мої молитви"
           />
         </Menu>
       </View>
