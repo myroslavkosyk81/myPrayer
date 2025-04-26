@@ -133,7 +133,7 @@ const HomeScreen = ({ navigation }) => {
               setMenuVisible(false);
               navigation.navigate("Menu2");
             }}
-            title="Мої молитви"
+            title="Вервиця щоденна"
           />
         </Menu>
       </View>
