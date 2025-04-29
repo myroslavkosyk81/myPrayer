@@ -104,15 +104,16 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     color: "#333",
   },
-  pageTextMenu2: {
-    fontSize: 16,
-    textAlign: "justify",
-    color: "#333",
-  },
+
   pageTextMenuTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: "center",
+    color: "#333",
+  },
+    pageTextMenu2: {
+    fontSize: 16,
+    textAlign: "justify",
     color: "#333",
   },
 });
