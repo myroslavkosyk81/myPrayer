@@ -60,7 +60,18 @@ export const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  
+  imageVervytsa: {
+    width: 332,
+    height: 220, // 🔼 більша висота
+    borderRadius: 8,
+    alignSelf: 'center',
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+  },
   
   blockText: {
     fontSize: 18,
@@ -82,6 +93,7 @@ export const styles = StyleSheet.create({
     color: "#333",
     marginBottom: 10,
     textAlign: "justify",
+    textDecorationLine: "underline",
   },
   page: {
     flex: 1,

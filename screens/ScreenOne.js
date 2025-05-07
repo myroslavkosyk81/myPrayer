@@ -28,7 +28,7 @@ const ScreenOne = ({ route }) => {
             style={[
               index === 0 ? styles.paragraph2 : styles.paragraph,
               index === 2 ? styles.paragraph2 : styles.paragraph,
-              index === 4 || index === 6 ? styles.paragraph2 : styles.paragraph,
+              index === 2 || index === 6 ? styles.paragraph2 : styles.paragraph,
             ]}
           >
             {item}
