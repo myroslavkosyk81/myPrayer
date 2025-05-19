@@ -95,6 +95,14 @@ export const styles = StyleSheet.create({
     textAlign: "justify",
     textDecorationLine: "underline",
   },
+  paragraph3: {
+    fontSize: 20,
+    lineHeight: 28,
+    fontWeight: "800",
+    color: "#333",
+    marginBottom: 10,
+    textAlign: "justify",
+  },
   page: {
     flex: 1,
     justifyContent: "top",
