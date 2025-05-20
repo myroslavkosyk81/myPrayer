@@ -4,6 +4,7 @@ import React from "react";
 import { View, Text, ScrollView, Image } from "react-native";
 import { styles } from "../styles/globalStyles";
 import { blocks } from "../data/vervytsa";
+import { testStyle } from "../data/testStyle";
 
 const ScreenOne = () => {
  
@@ -21,7 +22,6 @@ const ScreenOne = () => {
 
         <Text style={styles.pageTitle}>{blocks.one.title}</Text>
         
-
         {blocks.one.description.map((item, index) => (
           <Text
             key={index}
@@ -66,6 +66,22 @@ const ScreenOne = () => {
             {item}
           </Text>
         ))}
+        
+        {/* <Text style={styles.pageTitle2}>{testStyle.two.title}</Text>
+        <Text style={styles.pageTitle2}>{testStyle.two.description[0]}</Text>
+        
+        {testStyle.two.description.map((item, index) => (
+          <Text
+            key={index}
+            style={[
+              index === 0 ? styles.paragraph3 : styles.paragraph,
+              index === 2 ? styles.paragraph2 : styles.paragraph,
+            
+            ]}
+          >
+            {item}
+          </Text>
+        ))} */}
       </View>
     </ScrollView>
   );

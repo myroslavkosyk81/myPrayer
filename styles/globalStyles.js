@@ -96,7 +96,7 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   paragraph3: {
-    fontSize: 20,
+    fontSize: 22,
     lineHeight: 28,
     fontWeight: "800",
     color: "#333",
@@ -114,6 +114,12 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 10,
+  },
+  pageTitle2: {
+    fontSize: 42,
+    fontWeight: "bold",
+    marginBottom: 10,
+    textDecorationLine: "underline",
   },
   pageDate: {
     fontSize: 15,
