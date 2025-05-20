@@ -49,6 +49,18 @@ const ScreenOne = () => {
               index === 71 ? styles.paragraph2 : styles.paragraph,
               index === 74 ? styles.paragraph2 : styles.paragraph,
               index === 77 ? styles.paragraph2 : styles.paragraph,
+              index === 81 ? styles.paragraph2 : styles.paragraph,
+              index === 82 ? styles.paragraph2 : styles.paragraph,
+              index === 85 ? styles.paragraph2 : styles.paragraph,
+              index === 88 ? styles.paragraph2 : styles.paragraph,
+              index === 91 ? styles.paragraph2 : styles.paragraph,
+              index === 94 ? styles.paragraph2 : styles.paragraph,
+              index === 98 ? styles.paragraph2 : styles.paragraph,
+              index === 99 ? styles.paragraph2 : styles.paragraph,
+              index === 102 ? styles.paragraph2 : styles.paragraph,
+              index === 105 ? styles.paragraph2 : styles.paragraph,
+              index === 108 ? styles.paragraph2 : styles.paragraph,
+              index === 111 ? styles.paragraph2 : styles.paragraph,
             ]}
           >
             {item}
